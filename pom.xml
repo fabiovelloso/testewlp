@@ -40,9 +40,9 @@
             <url>https://liberty-app-accelerator.wasdev.developer.ibm.com/start/api/v1/repo</url>
         </repository>
         <repository>
-            <id>unknown-jars-temp-repo</id>
-            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
-            <url>file:${project.basedir}/lib</url>
+            <id>jnosqllocal</id>
+            <name>jnosql local repo</name>
+            <url>http://192.168.10.5:8081/nexus/content/repositories/jnosql/</url>
         </repository>
     </repositories>
 
@@ -90,16 +90,26 @@
             <type>pom</type>
             <scope>runtime</scope>
         </dependency>
-         <dependency>
+        <dependency>
+            <groupId>org.jnosql.diana</groupId>
+            <artifactId>diana-api</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
             <groupId>org.jnosql.artemis</groupId>
             <artifactId>artemis-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
-
         <dependency>
             <groupId>org.jnosql.diana</groupId>
             <artifactId>mongodb-driver</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
 
@@ -135,4 +145,7 @@
             </plugin>
         </plugins>
     </build>
+    
+    
+      
 </project>
