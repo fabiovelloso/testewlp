@@ -30,14 +30,19 @@
         <connection>scm:git:git@github.com:WASdev/sample.ferret.git</connection>
         <developerConnection>scm:git:git@github.com:WASdev/sample.ferret.git</developerConnection>
         <url>git@github.com:WASdev/sample.ferret.git</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
-  <repositories>
+    <repositories>
         <repository>
             <id>liberty-starter-maven-repo</id>
             <name>liberty-starter-maven-repo</name>
-        <url>https://liberty-app-accelerator.wasdev.developer.ibm.com/start/api/v1/repo</url>
+            <url>https://liberty-app-accelerator.wasdev.developer.ibm.com/start/api/v1/repo</url>
+        </repository>
+        <repository>
+            <id>unknown-jars-temp-repo</id>
+            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
+            <url>file:${project.basedir}/lib</url>
         </repository>
     </repositories>
 
@@ -59,7 +64,7 @@
             <scope>provided</scope>
         </dependency>
 
-   <dependency>
+        <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-client</artifactId>
             <version>3.1.1</version>
@@ -71,7 +76,7 @@
             <version>1.0.4</version>
             <scope>test</scope>
         </dependency>
-    <dependency>
+        <dependency>
             <groupId>net.wasdev.wlp.starters.microprofile</groupId>
             <artifactId>provided-pom</artifactId>
             <version>0.0.2</version>
@@ -85,7 +90,22 @@
             <type>pom</type>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>unknown.binary</groupId>
+            <artifactId>javax.ws.rs-api-2.0</artifactId>
+            <version>SNAPSHOT</version>
+        </dependency>
+         <dependency>
+            <groupId>org.jnosql.artemis</groupId>
+            <artifactId>artemis-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.jnosql.diana</groupId>
+            <artifactId>mongodb-driver</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -107,6 +127,15 @@
                     <bootstrapProperties>
                         <appLocation>${project.build.finalName}</appLocation>
                     </bootstrapProperties>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
