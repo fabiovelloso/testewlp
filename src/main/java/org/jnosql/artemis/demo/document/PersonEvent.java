@@ -1,4 +1,4 @@
-package org.jnosql.artemis.demo.se.document;
+package org.jnosql.artemis.demo.document;
 
 
 import java.util.logging.Logger;

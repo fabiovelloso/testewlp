@@ -42,7 +42,7 @@
         <repository>
             <id>jnosqllocal</id>
             <name>jnosql local repo</name>
-            <url>http://192.168.10.5:8081/nexus/content/repositories/jnosql/</url>
+            <url>http://192.168.1.36:8081/nexus/content/repositories/jnosql/</url>
         </repository>
     </repositories>
 
@@ -104,6 +104,11 @@
             <groupId>org.jnosql.diana</groupId>
             <artifactId>mongodb-driver</artifactId>
             <version>0.0.1</version>
+        </dependency>
+         <dependency>
+            <groupId>org.jnosql.diana</groupId>
+            <artifactId>couchbase-driver</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.jnosql.diana</groupId>
