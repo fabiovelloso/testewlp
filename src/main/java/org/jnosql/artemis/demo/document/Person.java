@@ -1,29 +1,26 @@
 package org.jnosql.artemis.demo.document;
 
-
-import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.jnosql.artemis.Column;
 import org.jnosql.artemis.Entity;
 
-
 @Entity
 public class Person {
 
     @Column("_id")
-    private long id;
+    private String id;
 
     @Column
     private String name;
 
     @Column
-    private List<String> phones;
+    private String phone;
 
     private String ignore;
 
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -32,8 +29,8 @@ public class Person {
     }
 
 
-    public List<String> getPhones() {
-        return phones;
+    public Person(String phone) {
+        this.phone = phone;
     }
 
     public String getIgnore() {
@@ -43,10 +40,10 @@ public class Person {
     public Person() {
     }
 
-    Person(long id, String name, List<String> phones, String ignore) {
+    Person(String id, String name, String phone, String ignore) {
         this.id = id;
         this.name = name;
-        this.phones = phones;
+        this.phone = phone;
         this.ignore = ignore;
     }
 
@@ -55,7 +52,7 @@ public class Person {
         return new ToStringBuilder(this, ToStringStyle.JSON_STYLE)
                 .append("id", id)
                 .append("name", name)
-                .append("phones", phones)
+                .append("phone", phone)
                 .append("ignore", ignore)
                 .toString();
     }

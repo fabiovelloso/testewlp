@@ -2,18 +2,17 @@ package org.jnosql.artemis.demo.document;
 
 import java.util.List;
 
-
 public class PersonBuilder {
 
-    private long id;
+    private String id;
 
     private String name;
 
-    private List<String> phones;
+    private String phone;
 
     private String ignore;
 
-    public PersonBuilder withId(long id) {
+    public PersonBuilder withId(String id) {
         this.id = id;
         return this;
     }
@@ -24,8 +23,8 @@ public class PersonBuilder {
     }
 
 
-    public PersonBuilder withPhones(List<String> phones) {
-        this.phones = phones;
+    public PersonBuilder withPhones(String phone) {
+        this.phone = phone;
         return this;
     }
 
@@ -35,6 +34,6 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(id, name, phones, ignore);
+        return new Person(id, name, phone, ignore);
     }
 }

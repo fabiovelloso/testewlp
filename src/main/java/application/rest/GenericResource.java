@@ -13,10 +13,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
-import org.jnosql.artemis.demo.document.Couchbase;
-import org.jnosql.artemis.demo.document.Mongo;
+import org.jnosql.artemis.demo.document.DocumentDatabase;
+import org.jnosql.artemis.demo.document.DocumentDatabaseType;
 import org.jnosql.artemis.demo.document.Person;
+
 import org.jnosql.artemis.document.DocumentRepository;
 import org.jnosql.diana.api.document.Document;
 import org.jnosql.diana.api.document.DocumentCondition;
@@ -30,15 +32,18 @@ import org.jnosql.diana.api.document.DocumentQuery;
 @Path("generic")
 public class GenericResource {
 
-   @Inject @Mongo
+   @Inject
+   @DocumentDatabase(value = DocumentDatabaseType.MONGODB )
+   //@DocumentDatabase(value = DocumentDatabaseType.COUCHBASE )
    private DocumentRepository repository;
 
-    private final Person PERSON = Person.builder().
-            withPhones(Arrays.asList("234", "432"))
-            .withName("Name")
-            .withId(1)
+   private static final Person PERSON = Person.builder().
+            withPhones("987654321")
+            .withName("Joao")
+            .withId("2")
             .withIgnore("Just Ignore").build();
 
+  
     /**
      * Creates a new instance of GenericResource
      */
@@ -64,6 +69,21 @@ public class GenericResource {
         //TODO return proper representation object
         return teste();
     }
+    
+    @GET
+    @Path("jnosql/{id}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getData(@PathParam("id") int id) {
+       // Person saved = repository.save(PERSON);
+      
+        DocumentQuery query = DocumentQuery.of("Person");
+        query.and(DocumentCondition.eq(Document.of("_id", id)));
+        
+        Optional<Person> person = repository.singleResult(query);
+        return "Entity found: " + person;
+    }
+    
+    
 
     /**
      * PUT method for updating or creating an instance of GenericResource
@@ -75,11 +95,9 @@ public class GenericResource {
     }
     
       private String teste() {
-//        Weld weld = new Weld();
-//        try (WeldContainer weldContainer = weld.initialize()) {
 
-     //   Person saved = repository.save(PERSON);
-     //   System.out.println("Person saved" + saved);
+//       Person saved = repository.save(PERSON);
+//       System.out.println("Person saved" + saved);
 
         DocumentQuery query = DocumentQuery.of("Person");
         query.and(DocumentCondition.eq(Document.of("_id", 1L)));
@@ -87,6 +105,8 @@ public class GenericResource {
         Optional<Person> person = repository.singleResult(query);
         System.out.println("Entity found: " + person);
         return "Entity found: " + person;
-//    }
+        
+     
+        
     }
 }
