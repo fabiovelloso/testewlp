@@ -7,7 +7,7 @@
         <groupId>net.wasdev.maven.parent</groupId>
         <artifactId>java7-parent</artifactId>
         <version>1.4</version>
-        <relativePath />
+        <relativePath/>
     </parent>
 
     <groupId>net.wasdev.wlp.sample</groupId>
@@ -124,7 +124,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.4</version>
+            <version>3.19.0</version>
             <type>jar</type>
         </dependency>
         <dependency>
