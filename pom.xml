@@ -7,7 +7,7 @@
         <groupId>net.wasdev.maven.parent</groupId>
         <artifactId>java7-parent</artifactId>
         <version>1.4</version>
-        <relativePath />
+        <relativePath/>
     </parent>
 
     <groupId>net.wasdev.wlp.sample</groupId>
@@ -114,7 +114,7 @@
          <dependency>
             <groupId>org.jnosql.diana</groupId>
             <artifactId>couchbase-driver</artifactId>
-            <version>0.0.1</version>
+            <version>0.0.9</version>
         </dependency>
         <dependency>
             <groupId>org.jnosql.diana</groupId>
