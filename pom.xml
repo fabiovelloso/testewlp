@@ -7,7 +7,7 @@
         <groupId>net.wasdev.maven.parent</groupId>
         <artifactId>java7-parent</artifactId>
         <version>1.4</version>
-        <relativePath />
+        <relativePath/>
     </parent>
 
     <groupId>net.wasdev.wlp.sample</groupId>
@@ -130,7 +130,7 @@
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
-            <version>3.4.1</version>
+            <version>3.12.14</version>
         </dependency>
         <dependency>
             <groupId>org.mongodb</groupId>
